@@ -7,6 +7,8 @@ import { RegistrarCursoComponent } from './components/administrador/registrar-cu
 import { RegistrarDocenteComponent } from './components/administrador/registrar-docente/registrar-docente.component';
 import { RegistrarHorarioComponent } from './components/administrador/registrar-horario/registrar-horario.component';
 import { VerNotaAdminComponent } from './components/administrador/ver-nota-admin/ver-nota-admin.component';
+import { VerHorarioComponent } from './components/alumno/ver-horario/ver-horario.component';
+import { VerNotasComponent } from './components/alumno/ver-notas/ver-notas.component';
 import { LoginComponent } from './components/compartidos/login/login.component';
 import { PerfilComponent } from './components/compartidos/perfil/perfil.component';
 import { RegistrarAsistenciaComponent } from './components/docente/registrar-asistencia/registrar-asistencia.component';
@@ -48,6 +50,12 @@ const routes: Routes = [
   },
   {
     path: 'registrar-asistencias', component: RegistrarAsistenciaComponent
+  },
+  {
+    path: 'ver-nota-alumno', component: VerNotasComponent
+  },
+  {
+    path: 'ver-curso-alumno', component: VerHorarioComponent
   }
 ];
 

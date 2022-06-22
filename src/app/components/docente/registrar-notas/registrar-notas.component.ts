@@ -10,7 +10,7 @@ import { UsuarioService } from 'src/app/services/usuario/usuario.service';
   styleUrls: ['./registrar-notas.component.css']
 })
 export class RegistrarNotasComponent implements OnInit {
-  private notas:Nota[] = [];
+  public notas:Nota[] = [];
   public notasMostrar:Nota[] = [];
   constructor(private usuario:UsuarioService, private apiNotas: NotaService) { }
   public Usuario = {

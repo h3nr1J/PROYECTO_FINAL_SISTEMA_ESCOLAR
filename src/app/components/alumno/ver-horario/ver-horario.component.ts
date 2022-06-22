@@ -16,7 +16,7 @@ export class VerHorarioComponent implements OnInit {
   constructor(private usuario:UsuarioService,private apiCurso: CursoService,private notaApi: NotaService) { }
 
   ngOnInit(): void {
-    this.
+    
   }
   
 

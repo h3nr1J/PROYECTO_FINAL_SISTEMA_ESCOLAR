@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Nota } from 'src/app/models/nota';
 import { NotaService } from 'src/app/services/notas/nota.service';
 import { UsuarioService } from 'src/app/services/usuario/usuario.service';
-
+import { Alumno } from 'src/app/models/alumno';
 @Component({
   selector: 'app-ver-notas',
   templateUrl: './ver-notas.component.html',
@@ -16,6 +16,21 @@ export class VerNotasComponent implements OnInit {
     rol: "",
     sexo: "",
     datos: []
+  }
+  public alumno: Alumno = this.alumnoVacio()
+  alumnoVacio():Alumno{
+    return {
+      idAlumno: "",
+      contrasenia: "",
+      dni: "",
+      apellidoP: "",
+      apellidoM: "",
+      nombre: "",
+      fechaNacimiento: "",
+      sexoA: "",
+      direccion: "",
+      nroNumeroCelular: ""
+    }
   }
   constructor(private usuario:UsuarioService,private apiNotas:NotaService) { }
   ngOnInit(): void {

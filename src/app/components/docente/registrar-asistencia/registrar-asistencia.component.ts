@@ -29,6 +29,10 @@ export class RegistrarAsistenciaComponent implements OnInit {
     let asistencia = this.asistencias[indice];
     console.log(asistencia)
     this.apiAsistencia.patchAsistencia(asistencia.codAs,estado).subscribe(data=>{
+      this.apiAsistencia.getAsistencias().subscribe(data=>{
+        this.asistencias = data
+      })
     })
   }  
 }
+

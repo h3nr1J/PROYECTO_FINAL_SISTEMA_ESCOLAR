@@ -14,12 +14,12 @@
           </thead>
           <tbody>
             <tr *ngFor="let element of cursos; index as i">
-              <td>{{ element.cur }}</td>
-              <td>{{ element.nota1 }}</td>
-              <td>{{ element.nota2 }}</td>
+              <td>{{ element.nombre }}</td>
+              <td>{{ element.descripcion }}</td>
+              <td>{{ element.imagen }}</td>
               
               
-            <td>{{ element.idCursoDetalle}}</td>
+            <td>{{ element.codigoC}}</td>
             </tr>
           </tbody>
         </table>

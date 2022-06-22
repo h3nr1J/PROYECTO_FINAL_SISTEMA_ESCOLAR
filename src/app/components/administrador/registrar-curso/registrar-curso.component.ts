@@ -4,7 +4,6 @@ import { Curso } from 'src/app/models/curso';
 import { CursoService } from 'src/app/services/cursos/curso.service';
 
 
-
 @Component({
   selector: 'app-registrar-curso',
   templateUrl: './registrar-curso.component.html',
