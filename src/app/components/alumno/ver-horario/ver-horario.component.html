@@ -1,1 +1,31 @@
-<p>ver-horario works!</p>
+<app-sidebar></app-sidebar>
+<div class="container main-box px-0">
+  <div class="container p-0 pt-3">
+    <div class="media shadow-lg">
+        <div class="container table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Codigo Curso</th>
+              <th scope="col">Nombre</th>
+              <th scope="col">Descripccion</th>
+              <th scope="col">Imagen</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let element of cursos; index as i">
+              <td>{{ element.cur }}</td>
+              <td>{{ element.nota1 }}</td>
+              <td>{{ element.nota2 }}</td>
+              
+              
+            <td>{{ element.idCursoDetalle}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+    </div>
+
+
