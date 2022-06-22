@@ -1,0 +1,165 @@
+<nav id="navbarSupportedContent" class="main-menu col-md-3 col-lg-2 d-md-block sidebar collapse navbar-collapse">
+  <ul class="nav-prin">
+    <li class="has-subnav nav-nombre-salir">
+      <div class="d-flex align-items-center ps-1 pt-2 pb-2">
+        <div class="flex-shrink-0">
+          <img [src]="foto" alt="perfil" class="img-fluid img-thumbnail rounded-circle logoEst">
+        </div>
+        <div class="flex-grow-1 ms-3 nombre">
+          <span>
+            Hola:  {{Usuario.datos[0]}}
+          </span>
+        </div>
+      </div>
+    </li>
+    <div *ngIf=" this.Usuario.rol =='ad'">
+      <li class="mt-2">
+        <a routerLink="/perfil" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-user fa-2x"></i>
+            <span class="nav-text ps-2">
+              Perfil
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/registrar-alumno" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-address-book fa-2x"></i>
+            <span class="nav-text ps-2">
+              Matriculas
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/registrar-docente" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-chalkboard-user fa-2x"></i>
+            <span class="nav-text ps-2">
+              Docentes
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/registrar-curso" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-book fa-2x"></i>
+            <span class="nav-text ps-2">
+              Cursos
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/ver-notas-admin" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-file-pen fa-2x"></i>
+            <span class="nav-text ps-2">
+              Notas
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/registrar-aula" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-person-chalkboard fa-2x"></i>
+            <span class="nav-text ps-2">
+              Aulas
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/registrar-horario" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-calendar-days fa-2x"></i>
+            <span class="nav-text ps-2">
+              Horarios
+            </span>
+          </div>
+        </a>
+      </li>
+    </div>
+    <div *ngIf=" this.Usuario.rol=='dc'">
+      <li>
+        <a routerLink="/perfil" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-user fa-2x"></i>
+            <span class="nav-text ps-2">
+              Perfil
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/registrar-notas" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-folder-open fa-2x"></i>
+            <span class="nav-text ps-2">
+              Registrar notas
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="/registrar-asistencias" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-clipboard-list fa-2x"></i>
+            <span class="nav-text ps-2">
+              Registrar Asistencia
+            </span>
+          </div>
+        </a>
+      </li>
+    </div>
+    <div *ngIf=" this.Usuario.rol=='al'">
+      <li>
+        <a routerLink="" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-list fa-2x"></i>
+            <span class="nav-text ps-2">
+              Perfil
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-folder-open fa-2x"></i>
+            <span class="nav-text ps-2">
+              Ver notas
+            </span>
+          </div>
+        </a>
+      </li>
+      <li>
+        <a routerLink="" routerLinkActive="active">
+          <div class="pt-2 pb-2">
+            <i class="fa-solid fa-table fa-2x"></i>
+            <span class="nav-text ps-2">
+              Ver curso
+            </span>
+          </div>
+        </a>
+      </li>
+    </div>
+  </ul>
+  <ul class="logout nav-nombre-salir mt-5">
+    <li>
+      <a routerLink="/login">
+        <div class="pt-2 pb-2">
+          <i class="fa-solid fa-power-off fa-2x"></i>
+          <span class="nav-text ps-2">
+            Salir
+          </span>
+        </div>
+      </a>
+    </li>
+  </ul>
+</nav>
+

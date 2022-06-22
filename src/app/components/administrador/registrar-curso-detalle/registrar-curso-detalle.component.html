@@ -1,0 +1,34 @@
+<div class="container">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+    <figure class="m-0">
+      <blockquote class="blockquote">
+        <h2 class="bg-dark text-white ">
+          <p class="text-center p-3">Asignar docentes</p>
+        </h2>
+      </blockquote>
+    </figure>
+    <div class="container media shadow-lg">
+      <form [formGroup]="this.formCursoDetalle" class="p-3">
+        <div class="row g-3 needs-validation" novalidate>
+          <mat-form-field class="col-md-4" appearance="legacy">
+            <mat-label>Codigo Curso Detalle</mat-label>
+            <input formControlName="idCursoDetalle" matInput>
+          </mat-form-field>
+          <mat-form-field class="col-md-4" appearance="legacy">
+            <mat-label>Codigo Curso</mat-label>
+            <input formControlName="codigoC" matInput>
+          </mat-form-field>
+          <mat-form-field class="col-md-4" appearance="legacy">
+            <mat-label>Codigo Docente</mat-label>
+            <input formControlName="codD" matInput>
+          </mat-form-field>
+          <div class="col-12">
+            <div class="col-12">
+              <button type="button" class="btn btn-primary" style="background-color:#3F51B5;" (click)="asignarCurso()">Registrar Curso</button>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+    <app-ver-curso-detalle></app-ver-curso-detalle>
+</div>

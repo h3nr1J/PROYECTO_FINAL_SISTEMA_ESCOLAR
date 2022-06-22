@@ -1,0 +1,14 @@
+.main-box {
+  position: relative;
+  float: right;
+  width: calc(100% - 260px);
+}
+
+.media {
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.btn-change {
+  width: 100%;
+}

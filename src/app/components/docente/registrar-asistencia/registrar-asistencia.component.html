@@ -1,0 +1,49 @@
+<app-sidebar></app-sidebar>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+<div class="container main-box p-5">
+
+<div class="container media p-0 my-4 shadow">
+  <figure class="m-0 mt-4">
+    <blockquote class="blockquote">
+      <h2 class="bg-dark text-white ">
+        <p class="text-center p-3">Registrar asistencia</p>
+      </h2>
+    </blockquote>
+  </figure>
+  <div class="table-responsive px-3 shadow-lg">
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">CodAs</th>
+          <th scope="col">fechaRegistro</th>
+          <th scope="col">estadoAsistencia</th>
+          <th scope="col">codD</th>
+          <th scope="col">idAlumno</th>
+          <th scope="col">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let elemento of asistencias; index as i">
+          <td>{{elemento.codAs}}</td>
+          <td>{{elemento.fechaRegistro}}</td>
+          <td>
+            <mat-form-field class="p-0 m-0" appearance="legacy">
+              <mat-select [(ngModel)]="this.estadoAsistencia"  class="p-0">
+                <mat-option value="asistio">Asistio</mat-option>
+                <mat-option value="tardanza">Tardanza</mat-option>
+                <mat-option value="no asistio">No asistio</mat-option>
+              </mat-select>
+            </mat-form-field>
+            
+          </td>
+          <td>{{elemento.codD}}</td>
+          <td>{{elemento.idAlumno}}</td>
+          <td class="d-flex flex-inline btn-actions mb-3">
+            <button class="btn btn-primary active" (click)="confirmar(i)"><i class="bi bi-check-circle-fill"></i></button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</div>

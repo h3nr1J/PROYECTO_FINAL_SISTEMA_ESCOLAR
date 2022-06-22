@@ -1,0 +1,27 @@
+.main-box {
+  position: relative;
+  float: right;
+}
+
+.media {
+  background-color: #fff;
+  border-radius: 5px;
+}
+
+.card-body {
+  backdrop-filter: blur(20px);
+}
+
+.card-title {
+  font-size: 2em;
+  font-family: 'Quicksand', sans-serif;
+}
+
+.card-text {
+  font-family: 'Open Sans', sans-serif;
+}
+
+.col .card img {
+  max-width: 800px;
+  max-height: 250px
+}

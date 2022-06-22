@@ -1,0 +1,67 @@
+<app-sidebar></app-sidebar>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+<div class="container main-box p-0 ">
+  <div class="container p-5">
+    <div class="row">
+      <div class="col-lg-6 col-sm-12 mb-3">
+        <button (click)="onChangeWindowCrearHorario()" class="btn btn-primary p-3 btn-change"
+          style="background-color: #3F51B5;">Crear horario <i class="bi bi-journal-bookmark-fill"></i></button>
+      </div>
+      <div class="col-lg-6 col-sm-12 mb-3">
+        <button (click)="onChangeWindowHorario()" class="btn btn-success p-3 btn-change">Ver horarios <i
+            class="bi bi-book"></i></button>
+      </div>
+    </div>
+    <div *ngIf="this.window==true; else elseHorario">
+      <figure class="m-0 mt-4">
+        <blockquote class="blockquote">
+          <h2 class="bg-dark text-white ">
+            <p class="text-center p-3">Registrar Horario</p>
+          </h2>
+        </blockquote>
+      </figure>
+      <div class="container media shadow-lg">
+        <form [formGroup]="this.formHorario" class="p-3 mt-3">
+          <div class="row g-3 needs-validation" novalidate>
+            <mat-form-field class="col-md-6" appearance="legacy">
+              <mat-label>Codigo Horario</mat-label>
+              <input formControlName="idHorario" matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-6" appearance="legacy">
+              <mat-label>Hora</mat-label>
+              <input formControlName="hora" matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-12" appearance="legacy">
+              <mat-label>id Curso Detalle</mat-label>
+              <input formControlName="idCursoDetalle" matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-12" appearance="legacy">
+              <mat-label>Codigo Aula</mat-label>
+              <input formControlName="codAu" matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-4" appearance="legacy">
+              <mat-label>Grado</mat-label>
+              <mat-select formControlName="idGrado">
+                <mat-option value="1ro">1ro</mat-option>
+                <mat-option value="2do">2do</mat-option>
+                <mat-option value="3ro">3ro</mat-option>
+                <mat-option value="4to">4to</mat-option>
+                <mat-option value="5to">5to</mat-option>
+                <mat-option value="6to">6to</mat-option>
+              </mat-select>
+            </mat-form-field>
+            <div class="col-12">
+              <div class="col-12">
+                <button type="button" class="btn btn-primary" style="background-color:#3F51B5;"
+                  (click)="asignarHorario()">Asignar Curso</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <ng-template #elseHorario>
+      <app-ver-horarios></app-ver-horarios>
+    </ng-template>
+  </div>
+</div>

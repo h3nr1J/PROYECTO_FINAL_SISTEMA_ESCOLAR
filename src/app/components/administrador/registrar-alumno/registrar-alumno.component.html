@@ -1,0 +1,130 @@
+<app-sidebar></app-sidebar>
+<div class="container main-box p-0 ">
+  <div class="container p-5">
+    <div class="row">
+      <div class="col-lg-4 col-sm-12 mb-3">
+        <button (click)="onChangeWindowRegistrarAlumno()" class="btn btn-primary p-3 btn-change" style="background-color: #3F51B5;">
+          REGISTRAR ALUMNO  <i class="bi bi-person-plus-fill"></i>
+        </button>
+      </div>
+      <div class="col-lg-4 col-sm-12">
+        <button (click)="onChangeWindowAlumnos()" class="btn btn-success p-3 btn-change">
+          VER ALUMNOS <i class="bi bi-people-fill"></i></button>
+      </div>
+      
+      <div class="col-lg-4 col-sm-12">
+        <button (click)="onChangeWindowMatricula()" class="btn btn-danger p-3 btn-change">
+          VER MATRICULA <i class="bi bi-journal-check"></i></button>
+      </div>
+
+    </div>
+    <div *ngIf="this.window==1">
+      <figure class="m-0 mt-4">
+        <blockquote class="blockquote">
+          <h2 class="bg-dark text-white ">
+            <p class="text-center p-3">Registrar alumno</p>
+          </h2>
+        </blockquote>
+      </figure>
+      <div class="container media shadow-lg">
+        <form [formGroup]="this.formAlumno" class="px-3">
+            <div class="row g-3 needs-validation" novalidate>
+              <mat-form-field class="col-md-6" appearance="legacy">
+                  <mat-label>Codigo</mat-label>
+                  <input formControlName="idAlumno" matInput>
+              </mat-form-field>
+                <mat-form-field class="col-md-6" appearance="legacy">
+                  <mat-label>Contraseña</mat-label>
+                  <input formControlName="contrasenia" matInput>
+                </mat-form-field>
+                <mat-form-field class="col-md-4" appearance="legacy">
+                  <mat-label>Nombre</mat-label>
+                  <input formControlName="nombre" matInput>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-4" appearance="legacy">
+                  <mat-label>Apellido paterno</mat-label>
+                  <input formControlName="apellidoP" matInput>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-4" appearance="legacy">
+                  <mat-label>Apellido materno</mat-label>
+                  <input formControlName="apellidoM" matInput>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-6" appearance="legacy">
+                  <mat-label>Dirección</mat-label>
+                  <input formControlName="direccion" matInput>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-6" appearance="legacy">
+                  <mat-label>Numero de celular</mat-label>
+                  <input formControlName="nroNumeroCelular" matInput>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-4" appearance="legacy">
+                  <mat-label>Dni</mat-label>
+                  <input formControlName="dni" matInput>
+                </mat-form-field>
+
+                <mat-form-field class="col-md-4" appearance="legacy">
+                  <mat-label>Fecha de nacimiento</mat-label>
+                  <input formControlName="fechaNacimiento" matInput [matDatepicker]="picker">
+                  <mat-hint>MM/DD/YYYY</mat-hint>
+                  <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                  <mat-datepicker #picker></mat-datepicker>
+                </mat-form-field>
+
+              <mat-form-field class="col-md-4" appearance="legacy">
+                  <mat-label>Sexo</mat-label>
+                  <mat-select formControlName="sexoA">
+                      <mat-option value="F">Femenino</mat-option>
+                      <mat-option value="M">Masculino</mat-option>
+                  </mat-select>
+              </mat-form-field>
+              </div>
+              </form>
+              <form [formGroup]="this.formMatricula" class="px-3 pt-3">
+                <div class="row g-3 needs-validation" novalidate>
+               <mat-form-field class="col-md-4" appearance="legacy">
+                 <mat-label>Id Matricula</mat-label>
+                 <input formControlName="idMatricula" matInput>
+               </mat-form-field>
+
+                <mat-form-field class="col-md-4" appearance="legacy">
+                  <mat-label>Pago matricula</mat-label>
+                  <input matInput formControlName="pagoMatricula" type="boolean" class="example-right-align"
+                    placeholder="0">
+                  <span matPrefix>$&nbsp;</span>
+                  <span matSuffix>.00</span>
+                </mat-form-field>
+
+              <mat-form-field class="col-md-4" appearance="legacy">
+                  <mat-label>Grado</mat-label>
+                  <mat-select formControlName="idGrado">
+                      <mat-option value="1ro">1ro</mat-option>
+                      <mat-option value="2do">2do</mat-option>
+                      <mat-option value="3ro">3ro</mat-option>
+                      <mat-option value="4to">4to</mat-option>
+                      <mat-option value="5to">5to</mat-option>
+                      <mat-option value="6to">6to</mat-option>
+                  </mat-select>
+              </mat-form-field>
+              </div>
+            </form>
+            
+              <div class="col-12">
+                <div class="col-12">
+                  <button type="button" class="btn btn-primary m-5" (click)="onAgregar()" style="background-color:#3F51B5 ;">Registrar</button>
+                </div>
+              </div>
+            
+      </div>
+    </div>
+    <div *ngIf="this.window==2">
+      <app-ver-alumnos></app-ver-alumnos>
+    </div>
+    <div *ngIf="this.window==3">
+      <app-ver-matriculas></app-ver-matriculas>
+    </div>
+  </div>

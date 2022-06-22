@@ -1,0 +1,68 @@
+<div class="container main-box p-0">
+  <div class="container p-0 pt-3">
+    <div class="media">
+      <figure class="text-center pt-3">
+        <blockquote class="blockquote">
+          <h1 class="text-black ">Lista de asignacion de docentes</h1>
+        </blockquote>
+      </figure>
+      <div class="container table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Curso</th>
+              <th scope="col">Docente</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let elemento of cursoDetalles; index as i">
+              <td>{{ elemento.idCursoDetalle }}</td>
+              <td>{{ elemento.codigoC }}</td>
+              <td>{{ elemento.codD }}</td>
+              <td class="d-flex flex-inline btn-actions">
+                <div class="px-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" (click)="capturarIndice(i)" style="background-color:#3F51B5 ;"><i
+                      class="bi bi-pencil-square"></i></button></div>
+                <div class="px-2"><button type="button" class="btn btn-danger" (click)="eliminarCursoDetalle(i)"
+                    style="background-color:#F44336;"><i class="bi bi-trash-fill"></i></button></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  <div>
+</div>
+
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Editar asignación de docentes</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="row p-3">
+            <p class="">Edite los datos del detalle </p>
+            <div class="col-lg-4 col-sm-12 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.cursoDetalleEditar.idCursoDetalle"
+                placeholder="Registre la contraseña" disabled>
+            </div>
+            <div class="col-lg-4 col-sm-12 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.cursoDetalleEditar.codigoC"
+                placeholder="Codigo del curso">
+            </div>
+            <div class="col-lg-4 col-sm-12 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.cursoDetalleEditar.codD"
+                placeholder="Codigo del docente">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="editarCursoDetalle()" data-bs-dismiss="modal"
+              style="background-color:#3F51B5 ;">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>

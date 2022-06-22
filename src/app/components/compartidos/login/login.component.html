@@ -1,0 +1,27 @@
+<div class="login">
+    <div class="login-screen shadow-lg">
+        <div class="app-title">
+            <img src="/assets/students.png" alt="" width="250px">
+        </div>
+        <br>
+        <form [formGroup]="login" (ngSubmit)="validar()" >
+            <div class="login-form">
+                    <mat-form-field class="px-1" appearance="legacy">
+                      <mat-label>Codigo</mat-label>
+                      <input formControlName="codigo" matInput>
+                    </mat-form-field>
+                    <mat-form-field class="px-1" appearance="legacy">
+                      <mat-label>Contraseña</mat-label>
+                      <input formControlName="contrasenia" matInput [type]="hide ? 'password' : 'text'">
+                      <button mat-button matSuffix class="btn-password" (click)="hide = !hide" [attr.aria-label]="'Hide password'"
+                        [attr.aria-pressed]="hide">
+                        <mat-icon>{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+                      </button>
+                    </mat-form-field>
+                <button type="submit" class="btn" value="log in">Ingresar</button>
+                <strong class="p-2" *ngIf="DatosCorrectos == true">Datos incorrectos</strong>
+                <a class="login-link" href="#">Olvidaste la contraseña?</a>
+            </div>
+        </form>
+    </div>
+</div>

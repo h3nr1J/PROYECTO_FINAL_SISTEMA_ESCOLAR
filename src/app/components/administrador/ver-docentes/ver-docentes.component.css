@@ -1,0 +1,9 @@
+.main-box {
+  position: relative;
+  float: right;
+}
+
+.media {
+  background-color: #fff;
+  border-radius: 5px;
+}

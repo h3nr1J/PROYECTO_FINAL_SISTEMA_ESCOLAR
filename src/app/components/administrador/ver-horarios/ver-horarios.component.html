@@ -1,0 +1,79 @@
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+<div class="container main-box p-0">
+  <div class="container p-0 pt-3">
+    <div class="media">
+      <figure class="text-center pt-3">
+        <blockquote class="blockquote">
+          <h1 class="text-black ">Lista de docentes</h1>
+        </blockquote>
+      </figure>
+      <div class="container table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Hora</th>
+              <th scope="col">Curso</th>
+              <th scope="col">Aula</th>
+              <th scope="col">Grado</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let element of horarios; index as i">
+              <td>{{ element.idHorario }}</td>
+              <td>{{ element.hora }}</td>
+              <td>{{ element.idCursoDetalle }}</td>
+              <td>{{ element.codAu }}</td>
+              <td>{{ element.idGrado}}</td>
+              <td class="d-flex flex-inline btn-actions">
+                <div class="px-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" (click)="capturarIndice(i)" style="background-color:#3F51B5 ;"><i
+                      class="bi bi-pencil-square"></i></button></div>
+                <div class="px-2"><button type="button" class="btn btn-danger" (click)="eliminarHorario(i)"
+                    style="background-color:#F44336;"><i class="bi bi-trash-fill"></i></button></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nuevo Resgistro de Docente</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="row p-3">
+            <p class="">Ingrese los datos del Docente </p>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.horarioEditar.idHorario"
+                placeholder="Codigo" disabled>
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.horarioEditar.hora" placeholder="Hora">
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.horarioEditar.idCursoDetalle"
+                placeholder="Curso">
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.horarioEditar.codAu"
+                placeholder="Aula">
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.horarioEditar.idGrado"
+                placeholder="Grado">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="editarHorario()" data-bs-dismiss="modal"
+              style="background-color:#3F51B5 ;">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>

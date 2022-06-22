@@ -1,0 +1,92 @@
+<div class="container media p-0 my-4 shadow">
+    <figure class="m-0 mt-4">
+      <blockquote class="blockquote">
+        <h2 class="bg-dark text-white ">
+          <p class="text-center p-3">Registrar alumno</p>
+        </h2>
+      </blockquote>
+    </figure>
+    <div class="table-responsive px-3 shadow-lg">
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">codAlumno</th>
+                    <th scope="col">NombreAlumno</th>
+                    <th scope="col">ApellidoPaterno</th>
+                    <th scope="col">ApellidoMaterno</th>
+                    <th scope="col">Sexo</th>
+                    <th scope="col">FechaNacimiento</th>
+                    <th scope="col">Direccion</th>
+                    <th scope="col">Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let elemento of alumnos; index as i">
+                    <td>{{elemento.idAlumno}}</td>
+                    <td>{{elemento.apellidoP}}</td>
+                    <td>{{elemento.apellidoM}}</td>
+                    <td>{{elemento.nombre}}</td>
+                    <td>{{elemento.sexoA}}</td>
+                    <td>{{elemento.fechaNacimiento}}</td>
+                    <td>{{elemento.direccion}}</td>
+
+                    <!-- botones eliminar y editar -->
+                    <td class="d-flex flex-inline btn-actions">
+                        <div class="px-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#exampleModal" (click)="capturarIndice(i)" style="background-color:#3F51B5 ;"><i class="bi bi-pencil-square"></i></button></div>
+                        <div class="px-2"><button type="button" class="btn btn-danger" (click)="eliminar(i)" style="background-color:#F44336;"><i class="bi bi-trash-fill"></i></button></div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Nuevo Resgistro de Estudiantes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="row p-3">
+            <p class="">Ingrese los datos del estudiante </p>
+            <div class="col-lg-6 py-2">
+                <input type="text" class="form-control" [(ngModel)]="this.alumnoEditar.contrasenia"
+                  placeholder="Registre la contraseña" disabled>
+            </div>
+            <div class="col-lg-6 py-2">
+                <input type="text" class="form-control" [(ngModel)]="this.alumnoEditar.dni"
+                  placeholder="Registre Dni">
+            </div>
+            <div class="col-lg-6 py-2">
+                <input type="text" class="form-control" [(ngModel)]="this.alumnoEditar.apellidoP"
+                  placeholder="Registre el Apellido Paterno">
+            </div>
+            <div class="col-lg-6 py-2">
+                <input type="text" class="form-control" [(ngModel)]="this.alumnoEditar.apellidoM"
+                  placeholder="Registre el Apellido Materno">
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.alumnoEditar.nombre"
+                placeholder="Registre el nombre">
+            </div>
+            <div class="col-lg-6 py-2">
+                <input type="text" class="form-control" [(ngModel)]="this.alumnoEditar.fechaNacimiento"
+                  placeholder="Registre la fecha de nacimiento">
+            </div>
+            <div class="col-lg-6 py-2">
+                <input type="text" class="form-control" [(ngModel)]="this.alumnoEditar.sexoA"
+                  placeholder="Registre el sexo del estudiante">
+            </div>
+            <div class="col-lg-6 py-2">
+                <input type="text" class="form-control" [(ngModel)]="this.alumnoEditar.direccion"
+                  placeholder="Registre la direccion del estudiante">
+            </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="editarAlumno()" data-bs-dismiss="modal"style="background-color:#3F51B5 ;" >Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>

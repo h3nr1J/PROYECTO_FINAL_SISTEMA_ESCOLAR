@@ -1,0 +1,85 @@
+<div class="container main-box p-0">
+  <div class="container p-0 pt-3">
+    <div class="media shadow">
+      <figure class="text-center pt-3">
+        <blockquote class="blockquote">
+          <h1 class="text-black ">Lista de matriculas</h1>
+        </blockquote>
+      </figure>
+      <div class="container table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Pagos</th>
+              <th scope="col">Grado</th>
+              <th scope="col">Alumno</th>
+              <th scope="col">Administrador</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let element of matriculas; index as i">
+              <td>{{ element.idMatricula }}</td>
+              <td>{{ element.fecha }}</td>
+              <td>{{ element.pagoMatricula }}</td>
+              <td>{{ element.idGrado }}</td>
+              <td>{{ element.idAlumno}}</td>
+              <td>{{ element.idAdmi}}</td>
+              <td class="d-flex flex-inline btn-actions">
+                <div class="px-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" (click)="capturarIndice(i)" style="background-color:#3F51B5 ;"><i
+                      class="bi bi-pencil-square"></i></button></div>
+                <div class="px-2"><button type="button" class="btn btn-danger" (click)="eliminarMatricula(i)"
+                    style="background-color:#F44336;"><i class="bi bi-trash-fill"></i></button></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nuevo Resgistro de Estudiantes</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="row p-3">
+            <p class="">Ingrese los datos del estudiante </p>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.matriculaEditar.idMatricula"
+                placeholder="Registre la contraseña" disabled>
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.matriculaEditar.fecha"
+                placeholder="Registre Dni">
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.matriculaEditar.pagoMatricula"
+                placeholder="Registre el Apellido Paterno">
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.matriculaEditar.idGrado"
+                placeholder="Registre el Apellido Materno">
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.matriculaEditar.idAlumno"
+                placeholder="Registre el nombre">
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.matriculaEditar.idAdmi"
+                placeholder="Registre la fecha de nacimiento">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="editarMatricula()" data-bs-dismiss="modal"
+              style="background-color:#3F51B5 ;">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>

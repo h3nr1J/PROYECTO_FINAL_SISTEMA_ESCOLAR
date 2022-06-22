@@ -1,0 +1,69 @@
+<div class="container main-box p-0">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css">
+  <div class="container p-0 pt-3">
+    <div class="media">
+      <figure class="text-center pt-3">
+        <blockquote class="blockquote">
+          <h1 class="text-black ">Lista de Aulas</h1>
+        </blockquote>
+      </figure>
+      <div class="container table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Capacidad</th>
+              <th scope="col">Numero </th>
+              <th scope="col">piso</th>
+
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let elementos of aulas; index as i">
+              <td>{{ elementos.codAu }}</td>
+              <td>{{ elementos.capacidadA }}</td>
+              <td>{{ elementos.numeroAula }}</td>
+              <td>{{ elementos.piso }}</td>
+              <td class="d-flex flex-inline btn-actions">
+                <div class="px-2"><button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                    data-bs-target="#exampleModal" (click)="capturarIndice(i)" style="background-color:#3F51B5 ;"><i
+                      class="bi bi-pencil-square"></i></button></div>
+                <div class="px-2"><button type="button" class="btn btn-danger" (click)="eliminarAula(i)"
+                    style="background-color:#F44336;"><i class="bi bi-trash-fill"></i></button></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+    </div>
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-xl">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">Nuevo Registro de Aula</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="row p-3">
+            <p class="">Ingrese los datos del Aula </p>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.aulaEditar.capacidadA"
+                placeholder="Capacidad del aula" disabled>
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.aulaEditar.numeroAula"
+                placeholder="Numero de aula">
+            </div>
+            <div class="col-lg-6 py-2">
+              <input type="text" class="form-control" [(ngModel)]="this.aulaEditar.piso" placeholder="Piso del aula">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-primary" (click)="editarAula()" data-bs-dismiss="modal"
+              style="background-color:#3F51B5 ;">Guardar cambios</button>
+          </div>
+        </div>
+      </div>
+    </div>

@@ -1,0 +1,60 @@
+<app-sidebar></app-sidebar>
+<div class="container main-box p-0 ">
+  <div class="container p-5">
+    <div class="row">
+      <div class="col-lg-4 col-sm-12 mb-3">
+        <button (click)="onChangeWindowCrearCurso()" class="btn btn-primary p-3 btn-change"
+          style="background-color: #3F51B5;">Registrar Curso <i class="bi bi-journal-bookmark-fill"></i></button>
+      </div>
+      <div class="col-lg-4 col-sm-12 mb-3">
+        <button (click)="onChangeWindowCurso()" class="btn btn-success p-3 btn-change">Ver Curso <i class="bi bi-book"></i></button>
+      </div>
+      <div class="col-lg-4 col-sm-12">
+        <button (click)="onChangeWindowCursoDetalle()" class="btn btn-danger p-3 btn-change">Asignar curso <i class="bi bi-box-arrow-down"></i></button>
+      </div>
+    </div>
+    <div *ngIf="this.window==1">
+      <figure class="m-0 mt-4">
+        <blockquote class="blockquote">
+          <h2 class="bg-dark text-white ">
+            <p class="text-center p-3">Registrar Curso</p>
+          </h2>
+        </blockquote>
+      </figure>
+      <div class="container media shadow-lg">
+        <form [formGroup]="this.formCurso" class="p-3 mt-3">
+          <div class="row g-3 needs-validation" novalidate>
+            <mat-form-field class="col-md-6" appearance="legacy">
+              <mat-label>Codigo Curso</mat-label>
+              <input formControlName="codigoC" matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-6" appearance="legacy">
+              <mat-label>Nombre</mat-label>
+              <input formControlName="nombre" matInput>
+            </mat-form-field>
+            <mat-form-field class="col-md-12" appearance="legacy">
+              <mat-label>Descripcion</mat-label>
+              <textarea formControlName="descripcion" matInput></textarea>
+            </mat-form-field>
+            <mat-form-field class="col-md-12" appearance="legacy">
+              <mat-label>Imagen</mat-label>
+              <input formControlName="imagen" matInput>
+            </mat-form-field>
+            <div class="col-12">
+              <div class="col-12">
+                <button type="button" class="btn btn-primary"
+                  style="background-color:#3F51B5;" (click)="registrarCurso()">Asignar Curso</button>
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div *ngIf="this.window==2">
+      <app-ver-cursos></app-ver-cursos>
+    </div>>
+    <div *ngIf="this.window==3">
+      <app-registrar-curso-detalle></app-registrar-curso-detalle>
+    </div>
+  </div>
+</div>

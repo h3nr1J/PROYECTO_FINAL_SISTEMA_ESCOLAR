@@ -1,0 +1,176 @@
+<app-sidebar></app-sidebar>
+
+<div class="container main-box p-0">
+  <div class="container p-5">
+    <div class="media align-items-center py-3 mb-3">
+      <div class="wid container d-flex flex-column">
+        <div class="pb-3">
+          <img [src]="foto" alt="" class="d-block ui-w-100 rounded-circle">
+        </div>
+        <mat-card>
+          <div class="wid d-flex flex-column media-body ml-4 p-3">
+          <h4 class="font-weight-bold mb-0">{{this.Usuario.datos[0] + " " + this.Usuario.datos[1] + " " + this.Usuario.datos[2]}}</h4>
+          <div class="text-muted mb-2">Codigo: {{this.Usuario.usuario}} </div>
+          <div class="btn-links">
+            <button mat-raised-button color="primary" data-bs-toggle="modal" data-bs-target="#exampleModal"
+                data-bs-whatever="@mdo">Editar</button>
+            <a href="" class="btn btn-default btn-sm icon-btn"><i class="fa fa-mail"></i></a>
+          </div>
+          
+        </div>
+        </mat-card>
+      </div>
+    </div>
+    <div class="card mb-4">
+      <div class="card-body">
+        <div *ngIf="this.Usuario.rol=='dc'">
+          <table class="table user-view-table m-0">
+            <tbody>
+              <tr>
+                <td>DNI:</td>
+                <td>{{this.docente.dniD}} </td>
+              </tr>
+              <tr>
+                <td>Sexo:</td>
+                <td>{{this.docente.sexoD}} </td>
+              </tr>
+              <tr>
+                <td>Fecha Nacimiento:</td>
+                <td>{{this.docente.fechaNaciD}} </td>
+              </tr>
+              <tr>
+                <td>Direccion:</td>
+                <td>{{this.docente.direccionD}} </td> -->
+              </tr>
+              <tr>
+                <td>Rol:</td>
+                <td>Docente</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div>
+          <div *ngIf="this.Usuario.rol=='ad'">
+            <table class="table user-view-table m-0">
+              <tbody>
+                <tr>
+                  <td>DNI:</td>
+                  <td>{{this.admin.dni}} </td>
+                </tr>
+                <tr>
+                  <td>Sexo:</td>
+                  <td>{{this.admin.sexoAd}} </td>
+                </tr>
+
+                <tr>
+                  <td>Direccion:</td>
+                  <td>{{this.admin.direccion}} </td>
+                </tr>
+                <tr>
+                  <td>Rol:</td>
+                  <td>Administrador</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div *ngIf="this.Usuario.rol=='al'">
+            <table class="table user-view-table m-0">
+              <tbody>
+                <tr>
+                  <td>DNI:</td>
+                  <td>{{this.alumno.dni}} </td>
+                </tr>
+                <tr>
+                  <td>Sexo:</td>
+                  <td>{{this.alumno.sexoA}} </td>
+                </tr>
+                <tr>
+                  <td>Fecha Nacimiento:</td>
+                  <td>{{this.alumno.fechaNacimiento}} </td>
+                </tr>
+                <tr>
+                  <td>Direccion:</td>
+                  <td>{{this.alumno.direccion}}</td>
+                </tr>
+                <tr>
+                  <td>Rol:</td>
+                  <td>Estudiante</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+        </div>
+        <hr class="border-light m-0">
+        <!-- <div *ngIf="this.Usuario.rol == 'dc' || this.Usuario.rol == 'al' ">
+          <div class="table-responsive">
+            <table class="table card-table m-0">
+              <tbody>
+                <tr>
+                  <th>Dias</th>
+                  <th>lunes</th>
+                  <th>Martes</th>
+                  <th>Miercoles</th>
+                  <th>Jueves</th>
+                  <th>Viernes</th>
+                </tr>
+                <tr>
+                  <td>7:00-9:00 am</td>
+                  <td><span class="fa fa-check text-primary"></span></td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                </tr>
+                <tr>
+                  <td>9:00-11:00 am</td>
+                  <td><span class="fa fa-check text-primary"></span></td>
+                  <td><span class="fa fa-check text-primary"></span></td>
+                  <td><span class="fa fa-check text-primary"></span></td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                </tr>
+                <tr>
+                  <td>11:00-13:00 am</td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                  <td><span class="fa fa-times text-light"></span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div> -->
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+  
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Editar perfil</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <div class="mb-3">
+              <label for="recipient-name" class="col-form-label">Nueva Contraseña</label>
+              <input type="text" class="form-control" id="recipient-name" [(ngModel)]="this.usuarioEdit.contrasenia">
+            </div>
+            <div class="mb-3">
+              <label for="message-text" class="col-form-label">Nueva Direccion</label>
+              <textarea class="form-control" id="message-text" [(ngModel)]="this.usuarioEdit.direccion" ></textarea>
+            </div>
+            
+        </div>
+        <div class="modal-footer ">
+          <button type="button" class="btn btn-primary" data-bs-dismiss="modal" style="background-color: #3F51B5;" (click)="GuardarCambios()">Confirmar cambios</button>
+        </div>
+      </div>
+    </div>
+  </div>

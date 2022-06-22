@@ -1,0 +1,38 @@
+<app-sidebar></app-sidebar>
+<div class="container main-box px-5">
+  <div class="container p-0 pt-3">
+    <div class="media shadow">
+      <figure class="text-center pt-3">
+        <blockquote class="blockquote">
+          <h1 class="text-black">Notas de los alumnos</h1>
+        </blockquote>
+      </figure>
+      <div class="container table-responsive">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Codigo</th>
+              <th scope="col">Nota 1</th>
+              <th scope="col">Nota 2</th>
+              <th scope="col">Nota 3</th>
+              <th scope="col">Promedio</th>
+              <th scope="col">Alumno</th>
+              <th scope="col">Curso</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let element of notas; index as i">
+              <td>{{ element.idNota }}</td>
+              <td>{{ element.nota1 }}</td>
+              <td>{{ element.nota2 }}</td>
+              <td>{{ element.nota3 }}</td>
+              <td>{{ element.promedio}}</td>
+              <td>{{ element.idAlumno}}</td>
+              <td>{{ element.idCursoDetalle}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div>
+    </div>

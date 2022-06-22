@@ -1,1 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
+
+body { 
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif; 
+    background-image: url("https://img.freepik.com/vector-gratis/fondo-educacion-estilo-doodle_53876-115365.jpg?t=st=1651639715~exp=1651640315~hmac=7e3e2f83a032311bb2681e2ed6bd0a5ed9df306513abfdd063b90d4fdcc1ba01&w=740");
+}
